@@ -12,8 +12,36 @@ public class SequenceNumberService {
 	@Autowired
 	private SequenceNumberRepository sequenceRepo;
 	
-	public Optional<SequenceNumber> getCustomer(SequenceNumber sno, BigInteger customerId ) {
-		return sequenceRepo.findById(customerId);
+	public BigInteger getSequenceByName(String name)
+	{
+		switch(name) {
+		case "customer":
+			return getNextCustomerSeqId();
+		case "contact":
+			return getNextContactSeqId();
+		case "storekey":
+			return getNextStoreKeySeqId();
+		case "subscription":
+			return getNextSubscriptionSeqId();
+		
+		}
+		return null;
 	}
+	
+	  public BigInteger  getNextCustomerSeqId() {
+	        return sequenceRepo.getNextCustomerSeqId();
+	    }
+	
+	  public BigInteger  getNextContactSeqId() {
+	        return sequenceRepo.getNextContactSeqId();
+	    }
+	
+	  public BigInteger  getNextStoreKeySeqId() {
+	        return sequenceRepo.getNextStoreKeySeqId();
+	    }
+	  public BigInteger  getNextSubscriptionSeqId() {
+	        return sequenceRepo.getNextSubscriptionSeqId();
+	    }
+	
 
 }
