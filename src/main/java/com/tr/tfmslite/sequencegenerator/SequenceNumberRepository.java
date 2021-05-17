@@ -20,5 +20,8 @@ public interface SequenceNumberRepository extends JpaRepository<SequenceNumber, 
 	
 	@Query(value = "SELECT nextval('subscription_no_seq')", nativeQuery = true)
     BigInteger getNextSubscriptionSeqId();
+	
+	@Query(value = "SELECT nextval('ff_no_seq')", nativeQuery = true)
+    BigInteger getNextFFSeqId();
 
 }

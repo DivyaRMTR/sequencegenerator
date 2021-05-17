@@ -23,6 +23,8 @@ public class SequenceNumberService {
 			return sequenceRepo.getNextStoreKeySeqId();
 		case "subscription":
 			return sequenceRepo.getNextSubscriptionSeqId();
+		case "ff":
+			return sequenceRepo.getNextFFSeqId();
 		
 		}
 		return null;
