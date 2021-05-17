@@ -3,13 +3,16 @@ package com.tr.tfmslite.sequencegenerator;
 import java.io.Serializable;
 import java.math.BigInteger;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="EmployeeDetails")
 @SequenceGenerator(name="customerSeq", initialValue=1, allocationSize=1)
 @SequenceGenerator(name = "subscriptionSeq",initialValue=1,allocationSize=1)
 @SequenceGenerator(name = "storagekeySeq",initialValue=1,allocationSize=1)
@@ -19,6 +22,7 @@ public class SequenceNumber implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="customerSeq")
+	@Column(name="customer_no_seq")
     private BigInteger customerId;
 
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="subscriptionSeq")
