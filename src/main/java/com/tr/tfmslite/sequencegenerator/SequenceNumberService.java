@@ -16,32 +16,15 @@ public class SequenceNumberService {
 	{
 		switch(name) {
 		case "customer":
-			return getNextCustomerSeqId();
+			return sequenceRepo.getNextCustomerSeqId();
 		case "contact":
-			return getNextContactSeqId();
+			return sequenceRepo.getNextContactSeqId();
 		case "storekey":
-			return getNextStoreKeySeqId();
+			return sequenceRepo.getNextStoreKeySeqId();
 		case "subscription":
-			return getNextSubscriptionSeqId();
+			return sequenceRepo.getNextSubscriptionSeqId();
 		
 		}
 		return null;
 	}
-	
-	  public BigInteger  getNextCustomerSeqId() {
-	        return sequenceRepo.getNextCustomerSeqId();
-	    }
-	
-	  public BigInteger  getNextContactSeqId() {
-	        return sequenceRepo.getNextContactSeqId();
-	    }
-	
-	  public BigInteger  getNextStoreKeySeqId() {
-	        return sequenceRepo.getNextStoreKeySeqId();
-	    }
-	  public BigInteger  getNextSubscriptionSeqId() {
-	        return sequenceRepo.getNextSubscriptionSeqId();
-	    }
-	
-
 }

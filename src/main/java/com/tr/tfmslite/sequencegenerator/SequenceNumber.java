@@ -13,11 +13,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="EmployeeDetails")
-@SequenceGenerator(name="customerSeq", initialValue=1, allocationSize=1)
-@SequenceGenerator(name = "subscriptionSeq",initialValue=1,allocationSize=1)
-@SequenceGenerator(name = "storagekeySeq",initialValue=1,allocationSize=1)
-@SequenceGenerator(name = "ffSeq",initialValue=1,allocationSize=1)
-@SequenceGenerator(name = "contactSeq",initialValue=1,allocationSize=1)
+@SequenceGenerator(name="customerSeq",sequenceName="customer_no_seq", initialValue=1, allocationSize=1)
+@SequenceGenerator(name = "subscriptionSeq",sequenceName="subscription_no_seq",initialValue=1,allocationSize=1)
+@SequenceGenerator(name = "storekeySeq",sequenceName="storekey_no_seq",initialValue=1,allocationSize=1)
+//@SequenceGenerator(name = "ffSeq",sequenceName="ff_no_seq"initialValue=1,allocationSize=1)
+@SequenceGenerator(name = "contactSeq",sequenceName="contact_no_seq",initialValue=1,allocationSize=1)
 public class SequenceNumber implements Serializable {
 	
 	@Id
@@ -28,11 +28,11 @@ public class SequenceNumber implements Serializable {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="subscriptionSeq")
     private BigInteger subscriptionId;
 	
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="storageSeq")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="storekeySeq")
     private BigInteger storagekeyId;
 	
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ffSeq")
-    private BigInteger ffId;
+	/*@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ffSeq")
+    private BigInteger ffId;*/
 	
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="contactSeq")
     private BigInteger contactId;
@@ -61,13 +61,13 @@ public class SequenceNumber implements Serializable {
 		this.storagekeyId = storagekeyId;
 	}
 
-	public BigInteger getFfId() {
+	/*public BigInteger getFfId() {
 		return ffId;
 	}
 
 	public void setFfId(BigInteger ffId) {
 		this.ffId = ffId;
-	}
+	}*/
 
 	public BigInteger getContactId() {
 		return contactId;

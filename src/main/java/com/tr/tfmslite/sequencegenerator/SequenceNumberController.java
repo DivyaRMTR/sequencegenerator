@@ -16,7 +16,7 @@ public class SequenceNumberController {
 	@Autowired
 	private SequenceNumberService sequenceService;
 	
-	@RequestMapping(value="/{name}", method=RequestMethod.POST)
+	@RequestMapping(value="/{name}")
 	public ResponseEntity<BigInteger> sequence(@PathVariable String name) {
 		HttpStatus status = HttpStatus.OK;
 		BigInteger output=sequenceService.getSequenceByName(name);
